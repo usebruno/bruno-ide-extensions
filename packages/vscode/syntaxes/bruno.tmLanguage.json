@@ -81,7 +81,7 @@
 			]
 		},
 		"headers-block": {
-			"name": "meta.params-block.bruno",
+			"name": "meta.headers-block.bruno",
 			"begin": "^headers\\s*",
       "end": "^\/headers\\s*",
 			"beginCaptures": {
@@ -336,7 +336,7 @@
 		},
 		"three-word-line": {
 			"patterns": [{
-				"match": "^[01]\\s+([^\\s]+)\\s+([^\\s]+)\\s*$",
+				"match": "^\\s*[01]\\s+([^\\s]+)\\s+([^\\s]+)\\s*$",
 				"captures": {
 					"0": {
 						"name": "constant.numeric.bruno"
@@ -366,13 +366,61 @@
 			},
 			"patterns": [
 				{
-					"include": "#inline-tags"
+					"name": "meta.response-inline-tags.bruno",
+					"begin": "^\\s*(name|status)\\s+",
+					"end": "(.+)$",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.bruno"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "string.bruno"
+						}
+					}
 				},
 				{
-					"include": "#headers-block"
+					"name": "meta.response-headers-block.bruno",
+					"begin": "^\\s*headers\\s*",
+					"end": "^\\s*\/headers\\s*",
+					"beginCaptures": {
+						"0": {
+							"name": "entity.name.function.bruno"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "entity.name.function.bruno"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#three-word-line"
+						}
+					]
 				},
 				{
-					"include": "#body-block"
+					"name": "meta.response-body-block.bruno",
+					"patterns": [{
+						"begin": "^\\s*body\n$",
+						"end": "^\\s*\/body\\s*",
+						"beginCaptures": {
+							"0": {
+								"name": "entity.name.function.bruno"
+							}
+						},
+						"endCaptures": {
+							"0": {
+								"name": "entity.name.function.bruno"
+							}
+						},
+						"patterns": [
+							{
+								"include": "source.json"
+							}
+						]
+					}]
 				}
 			]
 		}
