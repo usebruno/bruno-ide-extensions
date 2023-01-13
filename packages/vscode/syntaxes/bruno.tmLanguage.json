@@ -1,24 +1,39 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "bruno",
+	"scopeName": "source.bru",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
 		{
 			"include": "#strings"
 		},
 		{
 			"include": "#script-block"
+		},
+		{
+			"include": "#readme-block"
+		},
+		{
+			"include": "#assert-block"
+		},
+		{
+			"include": "#vars-block"
+		},
+		{
+			"include": "#body-block"
+		},
+		{
+			"include": "#inline-tags"
+		},
+		{
+			"include": "#params-block"
+		},
+		{
+			"include": "#headers-block"
+		},{
+			"include": "#response-example-block"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.bruno",
-				"match": "\\b(ver|type|name|method|url|params|body-mode|body|script|assert|vars|response-example|readme)\\b"
-			}]
-		},
 		"strings": {
 			"name": "string.quoted.double.bruno",
 			"begin": "\"",
@@ -30,16 +45,336 @@
 				}
 			]
 		},
+		"inline-tags": {
+			"name": "meta.inline-tags.bruno",
+			"begin": "^(ver|type|name|method|url|body-mode|status)\\s+",
+			"end": "(.+)$",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "string.bruno"
+				}
+			}
+		},
+		"params-block": {
+			"name": "meta.params-block.bruno",
+			"begin": "^params\\s*",
+      "end": "^\/params\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#three-word-line"
+				}
+			]
+		},
+		"headers-block": {
+			"name": "meta.params-block.bruno",
+			"begin": "^headers\\s*",
+      "end": "^\/headers\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#three-word-line"
+				}
+			]
+		},
 		"script-block": {
 			"name": "meta.script-block.bruno",
-			"begin": "script",
-			"end": "/script",
+			"begin": "^script\\s*",
+			"end": "^\/script\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
 			"patterns": [
 				{
 					"include": "source.js"
 				}
 			]
+		},
+		"vars-block": {
+			"name": "meta.vars-block.bruno",
+			"begin": "^vars\\s*",
+      "end": "^\/vars\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#three-word-line"
+				}
+			]
+		},
+		"assert-block": {
+			"name": "meta.assert-block.bruno",
+			"begin": "^assert\\s*",
+      "end": "^\/assert\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"patterns": [
+				{
+					"include": "source.json"
+				}
+			]
+		},
+		"readme-block": {
+			"name": "meta.readme-block.bruno",
+			"begin": "^readme\\s*",
+      "end": "^\/readme\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"patterns": [
+				{
+					"include": "text.html.markdown"
+				}
+			]
+		},
+		"body-block": {
+			"name": "meta.body-block.bruno",
+			"patterns": [{
+				"begin": "^body\n$",
+				"end": "^\/body\\s*",
+				"beginCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno"
+					}
+				},
+				"endCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno"
+					}
+				},
+				"patterns": [
+					{
+						"include": "source.json"
+					}
+				]
+			},
+			{
+				"begin": "^body\\(type=json\\)",
+				"end": "^\/body\\s*",
+				"beginCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno",
+						"patterns": [
+							{
+								"match": "type",
+								"name": "punctuation.accessor.bruno"
+							},
+							{
+								"match": "=",
+								"name": "keyword.operator.assignment.bruno"
+							},
+							{
+								"match": "json",
+								"name": "string.bruno"
+							}
+						]
+					}
+				},
+				"endCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno"
+					}
+				},
+				"patterns": [
+					{
+						"include": "source.json"
+					}
+				]
+			},
+			{
+				"begin": "^body\\(type=graphql\\)",
+				"end": "^\/body\\s*",
+				"beginCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno",
+						"patterns": [
+							{
+								"match": "type",
+								"name": "punctuation.accessor.bruno"
+							},
+							{
+								"match": "=",
+								"name": "keyword.operator.assignment.bruno"
+							},
+							{
+								"match": "graphql",
+								"name": "string.bruno"
+							}
+						]
+					}
+				},
+				"endCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno"
+					}
+				},
+				"patterns": [
+					{
+						"include": "source.graphql"
+					}
+				]
+			},
+			{
+				"begin": "^body\\(type=text\\)",
+				"end": "^\/body\\s*",
+				"beginCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno",
+						"patterns": [
+							{
+								"match": "type",
+								"name": "punctuation.accessor.bruno"
+							},
+							{
+								"match": "=",
+								"name": "keyword.operator.assignment.bruno"
+							},
+							{
+								"match": "text",
+								"name": "string.bruno"
+							}
+						]
+					}
+				},
+				"endCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno"
+					}
+				},
+				"patterns": [
+					{
+						"include": "text.plain"
+					}
+				]
+			},
+			{
+				"begin": "^body\\(type=xml\\)",
+				"end": "^\/body\\s*",
+				"beginCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno",
+						"patterns": [
+							{
+								"match": "type",
+								"name": "punctuation.accessor.bruno"
+							},
+							{
+								"match": "=",
+								"name": "keyword.operator.assignment.bruno"
+							},
+							{
+								"match": "xml",
+								"name": "string.bruno"
+							}
+						]
+					}
+				},
+				"endCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno"
+					}
+				},
+				"patterns": [
+					{
+						"include": "source.xml"
+					}
+				]
+			}]
+		},
+		"three-word-line": {
+			"patterns": [{
+				"match": "^[01]\\s+([^\\s]+)\\s+([^\\s]+)\\s*$",
+				"captures": {
+					"0": {
+						"name": "constant.numeric.bruno"
+					},
+					"1": {
+						"name": "entity.name.label.bruno"
+					},
+					"2": {
+						"name": "string.bruno"
+					}
+				}
+			}]
+		},
+		"response-example-block": {
+			"name": "meta.response-example.bruno",
+			"begin": "^response-example\\s*",
+      "end": "^\/response-example\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#inline-tags"
+				},
+				{
+					"include": "#headers-block"
+				},
+				{
+					"include": "#body-block"
+				}
+			]
 		}
-	},
-	"scopeName": "source.bru"
+	}
 }
