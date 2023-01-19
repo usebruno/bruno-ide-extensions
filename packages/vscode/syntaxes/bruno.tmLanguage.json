@@ -10,7 +10,10 @@
 			"include": "#script-block"
 		},
 		{
-			"include": "#readme-block"
+			"include": "#tests-block"
+		},
+		{
+			"include": "#docs-block"
 		},
 		{
 			"include": "#assert-block"
@@ -47,7 +50,7 @@
 		},
 		"inline-tags": {
 			"name": "meta.inline-tags.bruno",
-			"begin": "^(ver|type|name|method|url|body-mode|status)\\s+",
+			"begin": "^(seq|type|name|method|url|body-mode)\\s+",
 			"end": "(.+)$",
 			"beginCaptures": {
 				"0": {
@@ -120,6 +123,26 @@
 				}
 			]
 		},
+		"tests-block": {
+			"name": "meta.tests-block.bruno",
+			"begin": "^tests\\s*",
+			"end": "^\/tests\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "entity.name.function.bruno"
+				}
+			},
+			"patterns": [
+				{
+					"include": "source.js"
+				}
+			]
+		},
 		"vars-block": {
 			"name": "meta.vars-block.bruno",
 			"begin": "^vars\\s*",
@@ -156,14 +179,14 @@
 			},
 			"patterns": [
 				{
-					"include": "source.json"
+					"include": "#three-word-line"
 				}
 			]
 		},
-		"readme-block": {
-			"name": "meta.readme-block.bruno",
-			"begin": "^readme\\s*",
-      "end": "^\/readme\\s*",
+		"docs-block": {
+			"name": "meta.docs-block.bruno",
+			"begin": "^docs\\s*",
+      "end": "^\/docs\\s*",
 			"beginCaptures": {
 				"0": {
 					"name": "entity.name.function.bruno"
@@ -352,11 +375,17 @@
 		},
 		"response-example-block": {
 			"name": "meta.response-example.bruno",
-			"begin": "^response-example\\s*",
+			"begin": "^response-example\\(name=(\\w+),\\s*status=(\\d+)\\)\\s*",
       "end": "^\/response-example\\s*",
 			"beginCaptures": {
 				"0": {
 					"name": "entity.name.function.bruno"
+				},
+				"1": {
+					"name": "string.bruno"
+				},
+				"2": {
+					"name": "constant.numeric.bruno"
 				}
 			},
 			"endCaptures": {
@@ -365,21 +394,6 @@
 				}
 			},
 			"patterns": [
-				{
-					"name": "meta.response-inline-tags.bruno",
-					"begin": "^\\s*(name|status)\\s+",
-					"end": "(.+)$",
-					"beginCaptures": {
-						"0": {
-							"name": "keyword.bruno"
-						}
-					},
-					"endCaptures": {
-						"0": {
-							"name": "string.bruno"
-						}
-					}
-				},
 				{
 					"name": "meta.response-headers-block.bruno",
 					"begin": "^\\s*headers\\s*",
