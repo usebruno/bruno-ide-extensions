@@ -7,19 +7,22 @@ Bruno saves all your request on top of your filesystem in a eloquent domain spec
 ## Features
 This plugin provides the syntax highlight feature for .bru files
 
-![screenshot](images/syntax-highlighting.png)
+![screenshot](https://raw.githubusercontent.com/usebruno/bruno-ide-extensions/main/packages/vscode/images/syntax-highlighting.png)
 
 You can download the desktop app at our [website](https://www.usebruno.com)
 
 
-![screenshot](images/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/usebruno/bruno-ide-extensions/main/packages/vscode/images/screenshot.png)
 
 ## Release Notes
 
 
-### 1.0.0
+### 1.0.1
+* Fixed screenshots and icon
 
-Initial release of Bruno extension!
+
+### 1.0.0
+* Initial release of Bruno extension!
 
 ## For more information
 

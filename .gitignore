@@ -1,3 +1,6 @@
+# Vscode
+packages/vscode/*.vsix
+
 # Logs
 logs
 *.log
