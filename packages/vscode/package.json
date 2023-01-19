@@ -1,14 +1,21 @@
 {
   "name": "bruno",
   "displayName": "Bruno",
+  "publisher": "bruno-api-client",
   "description": "Bruno support for Visual Studio Code.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.74.0"
   },
   "categories": [
-    "Programming Languages"
+    "Language Packs",
+    "Testing"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usebruno/bruno-ide-extensions"
+  },
+  "icon": "images/icon.png",
   "contributes": {
     "languages": [{
       "id": "bruno",

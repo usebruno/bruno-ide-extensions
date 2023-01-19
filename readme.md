@@ -1,7 +1,7 @@
 ## IDE Extensions for Bruno
 
 ### Authors
-VS Code - Anoop M D
+[VS Code](https://marketplace.visualstudio.com/manage/publishers/bruno-api-client/extensions/bruno/hub) - Anoop M D
 IntelliJ - TBD
 
 ### In Development
