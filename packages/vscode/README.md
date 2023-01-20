@@ -16,6 +16,9 @@ You can download the desktop app at our [website](https://www.usebruno.com)
 
 ## Release Notes
 
+### 1.0.2
+* Fixed bug while highlighting values in headers
+
 
 ### 1.0.1
 * Fixed screenshots and icon
