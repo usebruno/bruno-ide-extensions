@@ -355,6 +355,39 @@
 						"include": "source.xml"
 					}
 				]
+			},
+			{
+				"begin": "^body\\(type=(form-urlencoded|multipart-form)\\)",
+				"end": "^\/body\\s*",
+				"beginCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno",
+						"patterns": [
+							{
+								"match": "type",
+								"name": "punctuation.accessor.bruno"
+							},
+							{
+								"match": "=",
+								"name": "keyword.operator.assignment.bruno"
+							},
+							{
+								"match": "xml",
+								"name": "string.bruno"
+							}
+						]
+					}
+				},
+				"endCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno"
+					}
+				},
+				"patterns": [
+					{
+						"include": "#three-word-line"
+					}
+				]
 			}]
 		},
 		"three-word-line": {
