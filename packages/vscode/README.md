@@ -16,6 +16,9 @@ You can download the desktop app at our [website](https://www.usebruno.com)
 
 ## Release Notes
 
+### 1.1.0
+* Textmate grammar updates to support form-urlencoded and multipart-form body types
+
 ### 1.0.2
 * Fixed bug while highlighting values in headers
 
