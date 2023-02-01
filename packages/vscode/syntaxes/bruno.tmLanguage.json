@@ -291,6 +291,39 @@
 				]
 			},
 			{
+				"begin": "^body\\(type=graphql-vars\\)",
+				"end": "^\/body\\s*",
+				"beginCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno",
+						"patterns": [
+							{
+								"match": "type",
+								"name": "punctuation.accessor.bruno"
+							},
+							{
+								"match": "=",
+								"name": "keyword.operator.assignment.bruno"
+							},
+							{
+								"match": "graphql-vars",
+								"name": "string.bruno"
+							}
+						]
+					}
+				},
+				"endCaptures": {
+					"0": {
+						"name": "entity.name.function.bruno"
+					}
+				},
+				"patterns": [
+					{
+						"include": "source.json"
+					}
+				]
+			},
+			{
 				"begin": "^body\\(type=text\\)",
 				"end": "^\/body\\s*",
 				"beginCaptures": {

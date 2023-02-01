@@ -16,6 +16,9 @@ You can download the desktop app at our [website](https://www.usebruno.com)
 
 ## Release Notes
 
+### 1.2.0
+* Support for highlighting body(type=graphql-vars) block tag
+
 ### 1.1.0
 * Textmate grammar updates to support form-urlencoded and multipart-form body types
 
