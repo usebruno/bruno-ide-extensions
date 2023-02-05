@@ -19,6 +19,7 @@
 		{"include": "#query-block"},
 		{"include": "#headers-block"},
 
+		{"include": "#body-block"},
 		{"include": "#body-json-block"},
 		{"include": "#body-text-block"},
 		{"include": "#body-xml-block"},
@@ -166,6 +167,17 @@
 				}
 			},
 			"patterns": [{"include": "#dictionary"}]
+		},
+		"body-block": {
+			"name": "meta.body-block.bruno",
+			"begin": "^body\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "source.json"}]
 		},
 		"body-json-block": {
 			"name": "meta.body-json-block.bruno",
