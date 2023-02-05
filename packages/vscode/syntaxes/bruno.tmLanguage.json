@@ -26,7 +26,7 @@
 		{"include": "#body-form-urlencoded-block"},
 		{"include": "#body-multipart-form-block"},
 		{"include": "#body-graphql-block"},
-		{"include": "#body-graphql-json-block"},
+		{"include": "#body-graphql-vars-block"},
 
 		{"include": "#assert-block"},
 		{"include": "#vars-block"},
@@ -245,9 +245,9 @@
 			},
 			"patterns": [{"include": "source.graphql"}]
 		},
-		"body-graphql-varsblock": {
+		"body-graphql-vars-block": {
 			"name": "meta.body-graphql-vars-block.bruno",
-			"begin": "^body\\:graphql:vars\\s*\\{",
+			"begin": "^body\\:graphql\\:vars\\s*\\{",
 			"end": "^\\}\\s*",
 			"beginCaptures": {
 				"0": {
