@@ -3,38 +3,36 @@
 	"name": "bruno",
 	"scopeName": "source.bru",
 	"patterns": [
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#script-block"
-		},
-		{
-			"include": "#tests-block"
-		},
-		{
-			"include": "#docs-block"
-		},
-		{
-			"include": "#assert-block"
-		},
-		{
-			"include": "#vars-block"
-		},
-		{
-			"include": "#body-block"
-		},
-		{
-			"include": "#inline-tags"
-		},
-		{
-			"include": "#params-block"
-		},
-		{
-			"include": "#headers-block"
-		},{
-			"include": "#response-example-block"
-		}
+		{"include": "#strings"},
+
+		{"include": "#meta-block"},
+
+		{"include": "#get-block"},
+		{"include": "#post-block"},
+		{"include": "#put-block"},
+		{"include": "#delete-block"},
+		{"include": "#options-block"},
+		{"include": "#head-block"},
+		{"include": "#trace-block"},
+		{"include": "#connect-block"},
+
+		{"include": "#query-block"},
+		{"include": "#headers-block"},
+
+		{"include": "#body-json-block"},
+		{"include": "#body-text-block"},
+		{"include": "#body-xml-block"},
+		{"include": "#body-form-urlencoded-block"},
+		{"include": "#body-multipart-form-block"},
+		{"include": "#body-graphql-block"},
+		{"include": "#body-graphql-json-block"},
+
+		{"include": "#assert-block"},
+		{"include": "#vars-block"},
+
+		{"include": "#script-block"},
+		{"include": "#tests-block"},
+		{"include": "#docs-block"}
 	],
 	"repository": {
 		"strings": {
@@ -48,73 +46,233 @@
 				}
 			]
 		},
-		"inline-tags": {
-			"name": "meta.inline-tags.bruno",
-			"begin": "^(seq|type|name|method|url|body-mode)\\s+",
-			"end": "(.+)$",
+		"meta-block": {
+			"name": "meta.meta-block.bruno",
+			"begin": "^meta\\s*\\{",
+			"end": "^\\}\\s*",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
 				}
 			},
-			"endCaptures": {
-				"0": {
-					"name": "string.bruno"
-				}
-			}
+			"patterns": [{"include": "#dictionary"}]
 		},
-		"params-block": {
-			"name": "meta.params-block.bruno",
-			"begin": "^params\\s*",
-      "end": "^\/params\\s*",
+		"get-block": {
+			"name": "meta.get-block.bruno",
+			"begin": "^get\\s*\\{",
+			"end": "^\\}\\s*",
 			"beginCaptures": {
 				"0": {
-					"name": "entity.name.function.bruno"
+					"name": "keyword.bruno"
 				}
 			},
-			"endCaptures": {
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"post-block": {
+			"name": "meta.post-block.bruno",
+			"begin": "^post\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
 				"0": {
-					"name": "entity.name.function.bruno"
+					"name": "keyword.bruno"
 				}
 			},
-			"patterns": [
-				{
-					"include": "#three-word-line"
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"put-block": {
+			"name": "meta.put-block.bruno",
+			"begin": "^put\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
 				}
-			]
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"delete-block": {
+			"name": "meta.delete-block.bruno",
+			"begin": "^delete\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"options-block": {
+			"name": "meta.options-block.bruno",
+			"begin": "^options\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"head-block": {
+			"name": "meta.head-block.bruno",
+			"begin": "^head\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"trace-block": {
+			"name": "meta.trace-block.bruno",
+			"begin": "^trace\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"connect-block": {
+			"name": "meta.connect-block.bruno",
+			"begin": "^connect\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"query-block": {
+			"name": "meta.query-block.bruno",
+			"begin": "^query\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
 		},
 		"headers-block": {
 			"name": "meta.headers-block.bruno",
-			"begin": "^headers\\s*",
-      "end": "^\/headers\\s*",
+			"begin": "^headers\\s*\\{",
+			"end": "^\\}\\s*",
 			"beginCaptures": {
 				"0": {
-					"name": "entity.name.function.bruno"
+					"name": "keyword.bruno"
 				}
 			},
-			"endCaptures": {
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"body-json-block": {
+			"name": "meta.body-json-block.bruno",
+			"begin": "^body\\:json\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
 				"0": {
-					"name": "entity.name.function.bruno"
+					"name": "keyword.bruno"
 				}
 			},
-			"patterns": [
-				{
-					"include": "#three-word-line"
+			"patterns": [{"include": "source.json"}]
+		},
+		"body-text-block": {
+			"name": "meta.body-text-block.bruno",
+			"begin": "^body\\:text\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
 				}
-			]
+			},
+			"patterns": [{"include": "text.html.markdown"}]
+		},
+		"body-xml-block": {
+			"name": "meta.body-xml-block.bruno",
+			"begin": "^body\\:xml\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "text.xml"}]
+		},
+		"body-form-urlencoded-block": {
+			"name": "meta.body-form-urlencoded-block.bruno",
+			"begin": "^body\\:form-urlencoded\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"body-multipart-form-block": {
+			"name": "meta.body-multipart-form-block.bruno",
+			"begin": "^body\\:multipart-form\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"body-graphql-block": {
+			"name": "meta.body-graphql-block.bruno",
+			"begin": "^body\\:graphql\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "source.graphql"}]
+		},
+		"body-graphql-varsblock": {
+			"name": "meta.body-graphql-vars-block.bruno",
+			"begin": "^body\\:graphql:vars\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "source.json"}]
+		},
+		"vars-block": {
+			"name": "meta.vars-block.bruno",
+			"begin": "^vars\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"assert-block": {
+			"name": "meta.assert-block.bruno",
+			"begin": "^assert\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
 		},
 		"script-block": {
 			"name": "meta.script-block.bruno",
-			"begin": "^script\\s*",
-			"end": "^\/script\\s*",
+			"begin": "^script\\s*\\{",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
-					"name": "entity.name.function.bruno"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "entity.name.function.bruno"
+					"name": "keyword.bruno"
 				}
 			},
 			"patterns": [
@@ -125,16 +283,16 @@
 		},
 		"tests-block": {
 			"name": "meta.tests-block.bruno",
-			"begin": "^tests\\s*",
-			"end": "^\/tests\\s*",
+			"begin": "^tests\\s*\\{",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
-					"name": "entity.name.function.bruno"
+					"name": "keyword.bruno"
 				}
 			},
 			"endCaptures": {
 				"0": {
-					"name": "entity.name.function.bruno"
+					"name": "keyword.bruno"
 				}
 			},
 			"patterns": [
@@ -143,58 +301,18 @@
 				}
 			]
 		},
-		"vars-block": {
-			"name": "meta.vars-block.bruno",
-			"begin": "^vars\\s*",
-      "end": "^\/vars\\s*",
-			"beginCaptures": {
-				"0": {
-					"name": "entity.name.function.bruno"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "entity.name.function.bruno"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#three-word-line"
-				}
-			]
-		},
-		"assert-block": {
-			"name": "meta.assert-block.bruno",
-			"begin": "^assert\\s*",
-      "end": "^\/assert\\s*",
-			"beginCaptures": {
-				"0": {
-					"name": "entity.name.function.bruno"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "entity.name.function.bruno"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#three-word-line"
-				}
-			]
-		},
 		"docs-block": {
 			"name": "meta.docs-block.bruno",
-			"begin": "^docs\\s*",
-      "end": "^\/docs\\s*",
+			"begin": "^docs\\s*\\{",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
-					"name": "entity.name.function.bruno"
+					"name": "keyword.bruno"
 				}
 			},
 			"endCaptures": {
 				"0": {
-					"name": "entity.name.function.bruno"
+					"name": "keyword.bruno"
 				}
 			},
 			"patterns": [
@@ -203,306 +321,18 @@
 				}
 			]
 		},
-		"body-block": {
-			"name": "meta.body-block.bruno",
+		"dictionary": {
 			"patterns": [{
-				"begin": "^body\n$",
-				"end": "^\/body\\s*",
-				"beginCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno"
-					}
-				},
-				"endCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno"
-					}
-				},
-				"patterns": [
-					{
-						"include": "source.json"
-					}
-				]
-			},
-			{
-				"begin": "^body\\(type=json\\)",
-				"end": "^\/body\\s*",
-				"beginCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno",
-						"patterns": [
-							{
-								"match": "type",
-								"name": "punctuation.accessor.bruno"
-							},
-							{
-								"match": "=",
-								"name": "keyword.operator.assignment.bruno"
-							},
-							{
-								"match": "json",
-								"name": "string.bruno"
-							}
-						]
-					}
-				},
-				"endCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno"
-					}
-				},
-				"patterns": [
-					{
-						"include": "source.json"
-					}
-				]
-			},
-			{
-				"begin": "^body\\(type=graphql\\)",
-				"end": "^\/body\\s*",
-				"beginCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno",
-						"patterns": [
-							{
-								"match": "type",
-								"name": "punctuation.accessor.bruno"
-							},
-							{
-								"match": "=",
-								"name": "keyword.operator.assignment.bruno"
-							},
-							{
-								"match": "graphql",
-								"name": "string.bruno"
-							}
-						]
-					}
-				},
-				"endCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno"
-					}
-				},
-				"patterns": [
-					{
-						"include": "source.graphql"
-					}
-				]
-			},
-			{
-				"begin": "^body\\(type=graphql-vars\\)",
-				"end": "^\/body\\s*",
-				"beginCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno",
-						"patterns": [
-							{
-								"match": "type",
-								"name": "punctuation.accessor.bruno"
-							},
-							{
-								"match": "=",
-								"name": "keyword.operator.assignment.bruno"
-							},
-							{
-								"match": "graphql-vars",
-								"name": "string.bruno"
-							}
-						]
-					}
-				},
-				"endCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno"
-					}
-				},
-				"patterns": [
-					{
-						"include": "source.json"
-					}
-				]
-			},
-			{
-				"begin": "^body\\(type=text\\)",
-				"end": "^\/body\\s*",
-				"beginCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno",
-						"patterns": [
-							{
-								"match": "type",
-								"name": "punctuation.accessor.bruno"
-							},
-							{
-								"match": "=",
-								"name": "keyword.operator.assignment.bruno"
-							},
-							{
-								"match": "text",
-								"name": "string.bruno"
-							}
-						]
-					}
-				},
-				"endCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno"
-					}
-				},
-				"patterns": [
-					{
-						"include": "text.plain"
-					}
-				]
-			},
-			{
-				"begin": "^body\\(type=xml\\)",
-				"end": "^\/body\\s*",
-				"beginCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno",
-						"patterns": [
-							{
-								"match": "type",
-								"name": "punctuation.accessor.bruno"
-							},
-							{
-								"match": "=",
-								"name": "keyword.operator.assignment.bruno"
-							},
-							{
-								"match": "xml",
-								"name": "string.bruno"
-							}
-						]
-					}
-				},
-				"endCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno"
-					}
-				},
-				"patterns": [
-					{
-						"include": "source.xml"
-					}
-				]
-			},
-			{
-				"begin": "^body\\(type=(form-urlencoded|multipart-form)\\)",
-				"end": "^\/body\\s*",
-				"beginCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno",
-						"patterns": [
-							{
-								"match": "type",
-								"name": "punctuation.accessor.bruno"
-							},
-							{
-								"match": "=",
-								"name": "keyword.operator.assignment.bruno"
-							},
-							{
-								"match": "xml",
-								"name": "string.bruno"
-							}
-						]
-					}
-				},
-				"endCaptures": {
-					"0": {
-						"name": "entity.name.function.bruno"
-					}
-				},
-				"patterns": [
-					{
-						"include": "#three-word-line"
-					}
-				]
-			}]
-		},
-		"three-word-line": {
-			"patterns": [{
-				"match": "^\\s*[01]\\s+([^\\s]+)\\s+([^\\n]+)\\s*$",
+				"match": "^\\s*([^\\:]+)[\\:]\\s+([^\\n]+)\\s*$",
 				"captures": {
-					"0": {
-						"name": "constant.numeric.bruno"
-					},
 					"1": {
-						"name": "entity.name.label.bruno"
+						"name": "entity.name.tag.bruno"
 					},
 					"2": {
 						"name": "string.bruno"
 					}
 				}
 			}]
-		},
-		"response-example-block": {
-			"name": "meta.response-example.bruno",
-			"begin": "^response-example\\(name=(\\w+),\\s*status=(\\d+)\\)\\s*",
-      "end": "^\/response-example\\s*",
-			"beginCaptures": {
-				"0": {
-					"name": "entity.name.function.bruno"
-				},
-				"1": {
-					"name": "string.bruno"
-				},
-				"2": {
-					"name": "constant.numeric.bruno"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "entity.name.function.bruno"
-				}
-			},
-			"patterns": [
-				{
-					"name": "meta.response-headers-block.bruno",
-					"begin": "^\\s*headers\\s*",
-					"end": "^\\s*\/headers\\s*",
-					"beginCaptures": {
-						"0": {
-							"name": "entity.name.function.bruno"
-						}
-					},
-					"endCaptures": {
-						"0": {
-							"name": "entity.name.function.bruno"
-						}
-					},
-					"patterns": [
-						{
-							"include": "#three-word-line"
-						}
-					]
-				},
-				{
-					"name": "meta.response-body-block.bruno",
-					"patterns": [{
-						"begin": "^\\s*body\n$",
-						"end": "^\\s*\/body\\s*",
-						"beginCaptures": {
-							"0": {
-								"name": "entity.name.function.bruno"
-							}
-						},
-						"endCaptures": {
-							"0": {
-								"name": "entity.name.function.bruno"
-							}
-						},
-						"patterns": [
-							{
-								"include": "source.json"
-							}
-						]
-					}]
-				}
-			]
 		}
 	}
 }
