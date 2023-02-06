@@ -260,7 +260,7 @@
 		},
 		"vars-req-block": {
 			"name": "meta.vars-req-block.bruno",
-			"begin": "^vars\\:req\\s*\\{",
+			"begin": "^vars\\:pre-request\\s*\\{",
 			"end": "^\\}\\s*",
 			"beginCaptures": {
 				"0": {
@@ -271,7 +271,7 @@
 		},
 		"vars-res-block": {
 			"name": "meta.vars-res-block.bruno",
-			"begin": "^vars\\:res\\s*\\{",
+			"begin": "^vars\\:post-response\\s*\\{",
 			"end": "^\\}\\s*",
 			"beginCaptures": {
 				"0": {
@@ -293,7 +293,7 @@
 		},
 		"script-req-block": {
 			"name": "meta.script-req-block.bruno",
-			"begin": "^script\\:req\\s*\\{",
+			"begin": "^script\\:pre-request\\s*\\{",
 			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
@@ -308,7 +308,7 @@
 		},
 		"script-res-block": {
 			"name": "meta.script-res-block.bruno",
-			"begin": "^script\\:res\\s*\\{",
+			"begin": "^script\\:post-response\\s*\\{",
 			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
