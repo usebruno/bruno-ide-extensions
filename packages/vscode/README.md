@@ -16,6 +16,9 @@ You can download the desktop app at our [website](https://www.usebruno.com)
 
 ## Release Notes
 
+### 2.0.0
+* Textmate grammar updates for the latest version of the bru language
+
 ### 1.2.0
 * Support for highlighting body(type=graphql-vars) block tag
 
