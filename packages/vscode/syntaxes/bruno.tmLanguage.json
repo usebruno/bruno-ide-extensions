@@ -29,9 +29,11 @@
 		{"include": "#body-graphql-vars-block"},
 
 		{"include": "#assert-block"},
-		{"include": "#vars-block"},
+		{"include": "#vars-req-block"},
+		{"include": "#vars-res-block"},
 
-		{"include": "#script-block"},
+		{"include": "#script-req-block"},
+		{"include": "#script-res-block"},
 		{"include": "#tests-block"},
 		{"include": "#docs-block"}
 	],
@@ -256,9 +258,20 @@
 			},
 			"patterns": [{"include": "source.json"}]
 		},
-		"vars-block": {
-			"name": "meta.vars-block.bruno",
-			"begin": "^vars\\s*\\{",
+		"vars-req-block": {
+			"name": "meta.vars-req-block.bruno",
+			"begin": "^vars\\:req\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"vars-res-block": {
+			"name": "meta.vars-res-block.bruno",
+			"begin": "^vars\\:res\\s*\\{",
 			"end": "^\\}\\s*",
 			"beginCaptures": {
 				"0": {
@@ -278,9 +291,24 @@
 			},
 			"patterns": [{"include": "#dictionary"}]
 		},
-		"script-block": {
-			"name": "meta.script-block.bruno",
-			"begin": "^script\\s*\\{",
+		"script-req-block": {
+			"name": "meta.script-req-block.bruno",
+			"begin": "^script\\:req\\s*\\{",
+			"end": "^\\}",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [
+				{
+					"include": "source.js"
+				}
+			]
+		},
+		"script-res-block": {
+			"name": "meta.script-res-block.bruno",
+			"begin": "^script\\:res\\s*\\{",
 			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
