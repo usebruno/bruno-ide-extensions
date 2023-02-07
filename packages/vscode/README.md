@@ -16,6 +16,9 @@ You can download the desktop app at our [website](https://www.usebruno.com)
 
 ## Release Notes
 
+### 2.2.0
+* Textmate grammar updates for environment vars tags
+
 ### 2.1.0
 * Textmate grammar updates for script and vars tags
 
