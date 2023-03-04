@@ -1,4 +1,5 @@
 const path = require('path');
+const postcssConfigPath = path.resolve(__dirname, 'postcss.config.js');
 
 module.exports = {
   mode: 'development',
@@ -19,6 +20,21 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                config: postcssConfigPath,
+              },
+            },
+          },
+        ],
       },
     ],
   },

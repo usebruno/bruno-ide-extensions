@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'tailwindcss/dist/tailwind.min.css';
 
 const ResponsePane = () => {
   return (
