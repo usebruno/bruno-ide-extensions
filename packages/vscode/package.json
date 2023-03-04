@@ -16,6 +16,7 @@
     "url": "https://github.com/usebruno/bruno-ide-extensions"
   },
   "icon": "icon.png",
+  "main": "./src/extension.js",
   "contributes": {
     "languages": [{
       "id": "bruno",
@@ -27,6 +28,12 @@
       "language": "bruno",
       "scopeName": "source.bru",
       "path": "./syntaxes/bruno.tmLanguage.json"
-    }]
+    }],
+    "commands": [
+      {
+        "command": "bruno.sayHello",
+        "title": "Say Hello"
+      }
+    ]
   }
 }
