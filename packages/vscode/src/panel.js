@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const path = require('path');
 
 class BrunoPanel {
   /**
@@ -17,10 +18,11 @@ class BrunoPanel {
     const panel = vscode.window.createWebviewPanel(
       BrunoPanel.viewType,
       'Bruno Panel',
-      column,
+      vscode.ViewColumn.Beside,
       {
         enableScripts: true,
         retainContextWhenHidden: true,
+        localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'out'))]
       }
     );
 
@@ -55,14 +57,26 @@ class BrunoPanel {
     const document = editor.document;
     const text = document.getText();
 
+    const scriptUri = this.panel.webview.asWebviewUri(
+      vscode.Uri.joinPath(this.context.extensionUri, 'out', 'panel', 'panel.js')
+    );
+
     try {
       const json = JSON.parse(text);
       const prettyJson = JSON.stringify(json, null, 2);
-      this.panel.webview.html = `
-        <html>
-          <body>
-            <pre>${prettyJson}</pre>
-          </body>
+      this.panel.webview.html = `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src vscode-resource: https:; script-src 'unsafe-eval' 'unsafe-inline' vscode-resource: https:; style-src vscode-resource: 'unsafe-inline' https:;">
+          <title>Bruno</title>
+        </head>
+        <body>
+          <div id="root">s</div>
+          <script src="${scriptUri}"></script>
+          <pre>${prettyJson}</pre>
+        </body>
         </html>
       `;
     } catch (err) {

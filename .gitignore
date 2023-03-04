@@ -1,5 +1,8 @@
 # Vscode
 packages/vscode/*.vsix
+packages/vscode/out
+packages/vscode/node_modules
+packages/vscode/package-lock.json
 
 # Logs
 logs
