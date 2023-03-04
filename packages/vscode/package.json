@@ -18,6 +18,15 @@
   "icon": "icon.png",
   "main": "./src/extension.js",
   "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "brunoPanel",
+          "name": "Bruno Panel",
+          "command": "bruno.runRequest"
+        }
+      ]
+    },
     "languages": [{
       "id": "bruno",
       "aliases": ["bruno", "bruno"],
@@ -33,6 +42,10 @@
       {
         "command": "bruno.sayHello",
         "title": "Say Hello"
+      },
+      {
+        "command": "bruno.runRequest",
+        "title": "Run Request"
       }
     ]
   }
