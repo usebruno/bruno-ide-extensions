@@ -15,7 +15,7 @@ You can use git or any version control of your choice to collaborate over your a
 This repo is for tracking the IDE Extensions. Please visit [here](https://github.com/usebruno/bruno) for the main repo
 
 ### Authors
-[VS Code](https://marketplace.visualstudio.com/manage/publishers/bruno-api-client/extensions/bruno/hub) - Anoop M D
+[VS Code](https://marketplace.visualstudio.com/items?itemName=bruno-api-client.bruno) - Anoop M D
 
 ### In Development
 * IntelliJ
