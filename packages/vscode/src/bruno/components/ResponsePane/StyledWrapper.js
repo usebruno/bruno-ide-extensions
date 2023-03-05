@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
+  font-size: 12px;
   div.tabs {
     div.tab {
       padding: 6px 0px;

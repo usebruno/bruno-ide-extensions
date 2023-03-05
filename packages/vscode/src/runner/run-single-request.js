@@ -38,7 +38,10 @@ const runSingleRequest = async function (filename, bruJson, collectionPath, coll
     interpolateVars(request, envVariables, collectionVariables);
 
     // run request
+    const timeStart = Date.now();
     const response = await axios(request);
+    const timeEnd = Date.now();
+    const duration = timeEnd - timeStart;
 
     // run post-response vars
     const postResponseVars = get(bruJson, 'request.vars.res');
@@ -72,12 +75,20 @@ const runSingleRequest = async function (filename, bruJson, collectionPath, coll
     }
 
     return {
+      request: {
+        method: request.method,
+        url: request.url,
+        headers: Object.entries(request.headers),
+        data: request.data
+      },
       assertionResults,
       testResults,
       response: {
         status: response.status,
         statusText: response.statusText,
-        headers: response.headers,
+        headers: Object.entries(response.headers),
+        size: response.headers['content-length'] || 0,
+        duration,
         data: response.data
       }
     };

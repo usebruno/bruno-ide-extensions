@@ -3,7 +3,7 @@
   "displayName": "Bruno",
   "publisher": "bruno-api-client",
   "description": "Bruno support for Visual Studio Code.",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
+    "@tabler/icons": "^2.7.0",
     "@usebruno/js": "^0.2.0",
     "@usebruno/lang": "^0.2.2",
     "autoprefixer": "^10.4.13",

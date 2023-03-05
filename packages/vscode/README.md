@@ -16,6 +16,9 @@ You can download the desktop app at our [website](https://www.usebruno.com)
 
 ## Release Notes
 
+### 3.0.0
+* Bru File Runner
+
 ### 2.2.0
 * Textmate grammar updates for environment vars tags
 
