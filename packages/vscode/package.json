@@ -3,7 +3,7 @@
   "displayName": "Bruno",
   "publisher": "bruno-api-client",
   "description": "Bruno support for Visual Studio Code.",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -18,7 +18,7 @@
   "icon": "icon.png",
   "main": "./src/extension.js",
   "activationEvents": [
-    "onCommand:bruno.runRequest"
+    "onCommand:extension.runBrunoRequest"
   ],
   "files.exclude": {
     "**/node_modules": true
@@ -29,7 +29,7 @@
         {
           "id": "brunoPanel",
           "name": "Bruno Panel",
-          "command": "bruno.runRequest"
+          "command": "extension.runBrunoRequest"
         }
       ]
     },
@@ -55,11 +55,7 @@
     ],
     "commands": [
       {
-        "command": "bruno.sayHello",
-        "title": "Say Hello"
-      },
-      {
-        "command": "bruno.runRequest",
+        "command": "extension.runBrunoRequest",
         "title": "Bruno: Run Request"
       }
     ]

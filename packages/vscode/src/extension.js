@@ -4,14 +4,8 @@ const BrunoPanel = require('./panel');
 function activate(context) {
 	console.log('Congratulations, your extension "bruno" is now active!');
 
-  let disposable = vscode.commands.registerCommand('bruno.sayHello', () => {
-    vscode.window.showInformationMessage('Hello World!');
-  });
-
-  context.subscriptions.push(disposable);
-
   context.subscriptions.push(
-    vscode.commands.registerCommand('bruno.runRequest', () => {
+    vscode.commands.registerCommand('extension.runBrunoRequest', () => {
       BrunoPanel.createOrShow(context);
     })
   );
