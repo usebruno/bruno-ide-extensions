@@ -7,7 +7,8 @@ const StyledWrapper = styled.div`
       border: none;
       border-bottom: solid 2px transparent;
       margin-right: 1.25rem;
-      color: grey;
+      color:  var(--vscode-editor-foreground);
+      opacity: 0.5;
       cursor: pointer;
 
       &:focus,
@@ -20,8 +21,8 @@ const StyledWrapper = styled.div`
       }
 
       &.active {
-        color: black !important;
-        border-bottom: red !important;
+        opacity: 1 !important;
+        border-bottom: sold 2px var(--vscode-tab-activeModifiedBorder) !important;
       }
     }
   }
