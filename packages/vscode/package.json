@@ -17,6 +17,12 @@
   },
   "icon": "icon.png",
   "main": "./src/extension.js",
+  "activationEvents": [
+    "onCommand:bruno.runRequest"
+  ],
+  "files.exclude": {
+    "**/node_modules": true
+  },
   "contributes": {
     "views": {
       "explorer": [
