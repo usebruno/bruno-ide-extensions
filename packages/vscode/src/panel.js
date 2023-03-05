@@ -17,7 +17,7 @@ class BrunoPanel {
 
     const panel = vscode.window.createWebviewPanel(
       BrunoPanel.viewType,
-      'Bruno Panel',
+      'Bruno',
       vscode.ViewColumn.Beside,
       {
         enableScripts: true,
@@ -58,7 +58,7 @@ class BrunoPanel {
     const text = document.getText();
 
     const scriptUri = this.panel.webview.asWebviewUri(
-      vscode.Uri.joinPath(this.context.extensionUri, 'out', 'panel', 'panel.js')
+      vscode.Uri.joinPath(this.context.extensionUri, 'out', 'bruno', 'index.js')
     );
 
     try {
@@ -73,7 +73,7 @@ class BrunoPanel {
           <title>Bruno</title>
         </head>
         <body>
-          <div id="root">s</div>
+          <div id="root"></div>
           <script src="${scriptUri}"></script>
           <pre>${prettyJson}</pre>
         </body>

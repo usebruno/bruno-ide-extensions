@@ -18,7 +18,7 @@ function activate(context) {
 
   const brunoPanelProvider = {
     provideWebviewPanel: (panel, _context, _token) => {
-      if (panel.viewType !== 'BrunoPanel') {
+      if (panel.viewType !== 'Bruno') {
         return;
       }
 

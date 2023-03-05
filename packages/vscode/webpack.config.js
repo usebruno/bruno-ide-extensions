@@ -3,10 +3,10 @@ const postcssConfigPath = path.resolve(__dirname, 'postcss.config.js');
 
 module.exports = {
   mode: 'development',
-  entry: './src/panel/index.js',
+  entry: './src/bruno/index.js',
   output: {
-    filename: 'panel.js',
-    path: path.resolve(__dirname, 'out', 'panel'),
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'out', 'bruno'),
     libraryTarget: "commonjs2",
   },
   module: {
