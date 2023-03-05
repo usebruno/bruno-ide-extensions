@@ -13,9 +13,11 @@ const ResponsePane = () => {
 
   const {
     isLoading,
-    selectedTab
+    selectedTab,
+    response
   } = useSelector((state) => state.app);
   console.log(selectedTab);
+  console.log(response);
 
   const getTabPanel = (tab) => {
     switch (tab) {
@@ -38,7 +40,7 @@ const ResponsePane = () => {
   if (isLoading) {
     return (
       <StyledWrapper className="flex h-full relative">
-        Loading
+        Running request...
       </StyledWrapper>
     );
   }

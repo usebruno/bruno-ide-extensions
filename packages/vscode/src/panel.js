@@ -1,5 +1,7 @@
 const vscode = require('vscode');
 const path = require('path');
+const { bruToJson } = require('./utils/bru');
+const { runSingleRequest } = require('./runner/run-single-request');
 
 class BrunoPanel {
   /**
@@ -38,7 +40,6 @@ class BrunoPanel {
     this.context = context;
 
     this.panel.onDidDispose(() => this.dispose(), null, context.subscriptions);
-
     this.update();
   }
 
@@ -47,23 +48,23 @@ class BrunoPanel {
     this.panel.dispose();
   }
 
-  update() {
+  async update() {
     const editor = vscode.window.activeTextEditor;
-    if (!editor || editor.document.languageId !== 'json') {
-      this.panel.webview.html = `<html><body>No JSON document active.</body></html>`;
-      return;
-    }
 
     const document = editor.document;
     const text = document.getText();
+    const filename = document.uri.fsPath;
+    const collectionPath = document.uri.fsPath;
+    const collectionVariables = {};
+    const envVars = {};
 
     const scriptUri = this.panel.webview.asWebviewUri(
       vscode.Uri.joinPath(this.context.extensionUri, 'out', 'bruno', 'index.js')
     );
 
     try {
-      const json = JSON.parse(text);
-      const prettyJson = JSON.stringify(json, null, 2);
+      const bruJson = bruToJson(text);
+
       this.panel.webview.html = `<!DOCTYPE html>
         <html lang="en">
         <head>
@@ -75,12 +76,20 @@ class BrunoPanel {
         <body>
           <div id="root"></div>
           <script src="${scriptUri}"></script>
-          <pre>${prettyJson}</pre>
         </body>
         </html>
       `;
+
+      const result = await runSingleRequest(filename, bruJson, collectionPath, collectionVariables, envVars);
+      console.log(result);
+
+      this.panel.webview.postMessage({
+        command: 'runResult',
+        result,
+      });
+
     } catch (err) {
-      this.panel.webview.html = `<html><body>Error parsing JSON: ${err.message}</body></html>`;
+      this.panel.webview.html = `<html><body>Error executing Bru file: ${err.message}</body></html>`;
     }
   }
 }

@@ -23,16 +23,6 @@ function activate(context) {
       }
 
       const brunoPanel = new BrunoPanel(panel, context);
-      brunoPanel.update();
-
-      context.subscriptions.push(
-        vscode.window.onDidChangeActiveTextEditor((editor) => {
-          if (editor) {
-            const content = editor.document.getText();
-            brunoPanel.update(content);
-          }
-        }
-      ));
     },
   };
 

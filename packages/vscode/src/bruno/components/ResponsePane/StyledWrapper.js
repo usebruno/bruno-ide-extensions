@@ -22,7 +22,7 @@ const StyledWrapper = styled.div`
 
       &.active {
         opacity: 1 !important;
-        border-bottom: sold 2px var(--vscode-tab-activeModifiedBorder) !important;
+        border-bottom: solid 2px var(--vscode-tab-activeModifiedBorder) !important;
       }
     }
   }
