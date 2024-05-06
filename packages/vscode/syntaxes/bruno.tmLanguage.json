@@ -361,11 +361,6 @@
 					"name": "keyword.bruno"
 				}
 			},
-			"endCaptures": {
-				"0": {
-					"name": "keyword.bruno"
-				}
-			},
 			"patterns": [
 				{
 					"include": "source.js"
@@ -381,11 +376,6 @@
 					"name": "keyword.bruno"
 				}
 			},
-			"endCaptures": {
-				"0": {
-					"name": "keyword.bruno"
-				}
-			},
 			"patterns": [
 				{
 					"include": "text.html.markdown"
@@ -394,12 +384,18 @@
 		},
 		"dictionary": {
 			"patterns": [{
-				"match": "^\\s*([^\\:]+)[\\:]\\s+([^\\n]+)\\s*$",
+				"match": "^\\s*(~?)([^\\:]+)(:)\\s*([^\\n]*)$",
 				"captures": {
 					"1": {
-						"name": "entity.name.tag.bruno"
+						"name": "keyword.operator.bruno"
 					},
 					"2": {
+						"name": "entity.name.tag.bruno"
+					},
+					"3": {
+						"name": "keyword.operator.bruno"
+					},
+					"4": {
 						"name": "string.bruno"
 					}
 				}
