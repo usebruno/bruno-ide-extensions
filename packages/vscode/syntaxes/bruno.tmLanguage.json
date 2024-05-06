@@ -35,8 +35,7 @@
 		{"include": "#vars-req-block"},
 		{"include": "#vars-res-block"},
 
-		{"include": "#script-req-block"},
-		{"include": "#script-res-block"},
+		{"include": "#script-block"},
 		{"include": "#tests-block"},
 		{"include": "#docs-block"}
 	],
@@ -322,27 +321,18 @@
 			},
 			"patterns": [{"include": "#dictionary"}]
 		},
-		"script-req-block": {
-			"name": "meta.script-req-block.bruno",
-			"begin": "^script\\:pre-request\\s*\\{",
+		"script-block": {
+			"name": "meta.script-block.bruno",
+			"begin": "^(script)(:)(pre-request|post-response)\\s*\\{",
 			"end": "^\\}",
 			"beginCaptures": {
-				"0": {
+				"1": {
 					"name": "keyword.bruno"
-				}
-			},
-			"patterns": [
-				{
-					"include": "source.js"
-				}
-			]
-		},
-		"script-res-block": {
-			"name": "meta.script-res-block.bruno",
-			"begin": "^script\\:post-response\\s*\\{",
-			"end": "^\\}",
-			"beginCaptures": {
-				"0": {
+				},
+				"2": {
+					"name": "keyword.operator.bruno"
+				},
+				"3": {
 					"name": "keyword.bruno"
 				}
 			},
