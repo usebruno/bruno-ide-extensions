@@ -19,6 +19,8 @@
 		{"include": "#query-block"},
 		{"include": "#headers-block"},
 
+		{"include": "#auth-block"},
+
 		{"include": "#body-block"},
 		{"include": "#body-json-block"},
 		{"include": "#body-text-block"},
@@ -170,6 +172,23 @@
 				}
 			},
 			"patterns": [{"include": "#dictionary"}]
+		},
+		"auth-block": {
+			"name": "meta.auth.bruno",
+			"begin": "^(auth)(:)(awsv4|basic|bearer|digest|oauth2)\\s*\\{",
+			"end": "^\\}",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.bruno"
+				},
+				"2": {
+					"name": "keyword.operator.bruno"
+				},
+				"3": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{ "include": "#dictionary" }]
 		},
 		"body-block": {
 			"name": "meta.body-block.bruno",
