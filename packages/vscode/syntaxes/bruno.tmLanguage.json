@@ -27,6 +27,7 @@
 		{"include": "#body-multipart-form-block"},
 		{"include": "#body-graphql-block"},
 		{"include": "#body-graphql-vars-block"},
+		{"include": "#body-sparql-block"},
 
 		{"include": "#assert-block"},
 		{"include": "#vars-block"},
@@ -309,6 +310,23 @@
 				}
 			},
 			"patterns": [{"include": "source.json"}]
+		},
+		"body-sparql-block": {
+			"name": "meta.body-sparql-block.bruno",
+			"begin": "^(body)(:)(sparql)\\s*\\{",
+			"end": "^\\}",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.bruno"
+				},
+				"2": {
+					"name": "keyword.operator.bruno"
+				},
+				"3": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "source.sparql"}]
 		},
 		"vars-block": {
 			"name": "meta.vars-block.bruno",
