@@ -52,7 +52,7 @@
 		"meta-block": {
 			"name": "meta.meta-block.bruno",
 			"begin": "^meta\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -63,7 +63,7 @@
 		"get-block": {
 			"name": "meta.get-block.bruno",
 			"begin": "^get\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -74,7 +74,7 @@
 		"post-block": {
 			"name": "meta.post-block.bruno",
 			"begin": "^post\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -85,7 +85,7 @@
 		"put-block": {
 			"name": "meta.put-block.bruno",
 			"begin": "^put\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -96,7 +96,7 @@
 		"delete-block": {
 			"name": "meta.delete-block.bruno",
 			"begin": "^delete\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -107,7 +107,7 @@
 		"options-block": {
 			"name": "meta.options-block.bruno",
 			"begin": "^options\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -118,7 +118,7 @@
 		"head-block": {
 			"name": "meta.head-block.bruno",
 			"begin": "^head\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -129,7 +129,7 @@
 		"trace-block": {
 			"name": "meta.trace-block.bruno",
 			"begin": "^trace\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -140,7 +140,7 @@
 		"connect-block": {
 			"name": "meta.connect-block.bruno",
 			"begin": "^connect\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -151,7 +151,7 @@
 		"query-block": {
 			"name": "meta.query-block.bruno",
 			"begin": "^query\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -162,7 +162,7 @@
 		"headers-block": {
 			"name": "meta.headers-block.bruno",
 			"begin": "^headers\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -190,7 +190,7 @@
 		"body-block": {
 			"name": "meta.body-block.bruno",
 			"begin": "^body\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -201,7 +201,7 @@
 		"body-json-block": {
 			"name": "meta.body-json-block.bruno",
 			"begin": "^body\\:json\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -212,7 +212,7 @@
 		"body-text-block": {
 			"name": "meta.body-text-block.bruno",
 			"begin": "^body\\:text\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -223,7 +223,7 @@
 		"body-xml-block": {
 			"name": "meta.body-xml-block.bruno",
 			"begin": "^body\\:xml\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -234,7 +234,7 @@
 		"body-form-urlencoded-block": {
 			"name": "meta.body-form-urlencoded-block.bruno",
 			"begin": "^body\\:form-urlencoded\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -245,7 +245,7 @@
 		"body-multipart-form-block": {
 			"name": "meta.body-multipart-form-block.bruno",
 			"begin": "^body\\:multipart-form\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -256,7 +256,7 @@
 		"body-graphql-block": {
 			"name": "meta.body-graphql-block.bruno",
 			"begin": "^body\\:graphql\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -267,7 +267,7 @@
 		"body-graphql-vars-block": {
 			"name": "meta.body-graphql-vars-block.bruno",
 			"begin": "^body\\:graphql\\:vars\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
@@ -295,7 +295,7 @@
 		"assert-block": {
 			"name": "meta.assert-block.bruno",
 			"begin": "^assert\\s*\\{",
-			"end": "^\\}\\s*",
+			"end": "^\\}",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.bruno"
