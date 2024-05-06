@@ -9,6 +9,7 @@
 		{"include": "#post-block"},
 		{"include": "#put-block"},
 		{"include": "#delete-block"},
+		{"include": "#patch-block"},
 		{"include": "#options-block"},
 		{"include": "#head-block"},
 		{"include": "#trace-block"},
@@ -84,6 +85,17 @@
 		"delete-block": {
 			"name": "meta.delete-block.bruno",
 			"begin": "^(delete)\\s*\\{",
+			"end": "^\\}",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"patch-block": {
+			"name": "meta.patch-block.bruno",
+			"begin": "^(patch)\\s*\\{",
 			"end": "^\\}",
 			"beginCaptures": {
 				"1": {
