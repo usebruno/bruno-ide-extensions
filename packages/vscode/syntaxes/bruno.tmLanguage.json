@@ -32,8 +32,6 @@
 
 		{"include": "#assert-block"},
 		{"include": "#vars-block"},
-		{"include": "#vars-req-block"},
-		{"include": "#vars-res-block"},
 
 		{"include": "#script-block"},
 		{"include": "#tests-block"},
@@ -279,32 +277,16 @@
 		},
 		"vars-block": {
 			"name": "meta.vars-block.bruno",
-			"begin": "^vars\\s*\\{",
-			"end": "^\\}\\s*",
+			"begin": "^(vars)((:)(pre-request|post-response))?\\s*\\{",
+			"end": "^\\}",
 			"beginCaptures": {
-				"0": {
+				"1": {
 					"name": "keyword.bruno"
-				}
-			},
-			"patterns": [{"include": "#dictionary"}]
-		},
-		"vars-req-block": {
-			"name": "meta.vars-req-block.bruno",
-			"begin": "^vars\\:pre-request\\s*\\{",
-			"end": "^\\}\\s*",
-			"beginCaptures": {
-				"0": {
-					"name": "keyword.bruno"
-				}
-			},
-			"patterns": [{"include": "#dictionary"}]
-		},
-		"vars-res-block": {
-			"name": "meta.vars-res-block.bruno",
-			"begin": "^vars\\:post-response\\s*\\{",
-			"end": "^\\}\\s*",
-			"beginCaptures": {
-				"0": {
+				},
+				"3": {
+					"name": "keyword.operator.bruno"
+				},
+				"4": {
 					"name": "keyword.bruno"
 				}
 			},
