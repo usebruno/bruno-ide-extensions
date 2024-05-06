@@ -3,8 +3,6 @@
 	"name": "bruno",
 	"scopeName": "source.bru",
 	"patterns": [
-		{"include": "#strings"},
-
 		{"include": "#meta-block"},
 
 		{"include": "#get-block"},
@@ -38,17 +36,6 @@
 		{"include": "#docs-block"}
 	],
 	"repository": {
-		"strings": {
-			"name": "string.quoted.double.bruno",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.bruno",
-					"match": "\\\\."
-				}
-			]
-		},
 		"meta-block": {
 			"name": "meta.meta-block.bruno",
 			"begin": "^meta\\s*\\{",
