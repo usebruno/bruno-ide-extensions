@@ -36,5 +36,7 @@
                 instance="com.usebruno.plugin.bruno.settings.BrunoSettingsConfigurable"
                 id="com.usebruno.plugin.bruno.settings.BrunoSettingsConfigurable"
         />
+
+        <configurationType implementation="com.usebruno.plugin.bruno.execution.BrunoRunConfigurationType"/>
     </extensions>
 </idea-plugin>

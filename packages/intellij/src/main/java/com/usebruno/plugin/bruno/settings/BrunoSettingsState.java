@@ -33,8 +33,8 @@ public final class BrunoSettingsState implements PersistentStateComponent<BrunoS
         XmlSerializerUtil.copyBean(state, this);
     }
 
-    @SuppressWarnings("unused")
-    public File getBrunoCliExecutable() {
+    public static File getBrunoCliExecutable() {
+        String pathToBrunoCliExecutable = getInstance().pathToBrunoCliExecutable;
         if (pathToBrunoCliExecutable == null || pathToBrunoCliExecutable.isBlank()) {
             return BrunoSettingsUtils.authDetectPathToBrunoCliExecutable();
         }
