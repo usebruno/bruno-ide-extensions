@@ -43,6 +43,10 @@
         "extensions": [
           ".bru"
         ],
+        "icon": {
+          "light": "icon.png",
+          "dark": "icon.png"
+        },
         "configuration": "./language-configuration.json"
       }
     ],
