@@ -1,0 +1,143 @@
+meta {
+  foo: 1
+  ~bar: a
+  :
+}
+
+get {
+  foo: 1
+}
+
+post {
+  foo: 1
+}
+
+put {
+  foo: 1
+}
+
+delete {
+  foo: 1
+}
+
+patch {
+  foo: 1
+}
+
+options {
+  foo: 1
+}
+
+head {
+  foo: 1
+}
+
+connect {
+  foo: 1
+}
+
+trace {
+  foo: 1
+}
+
+headers {
+  foo: 1
+}
+
+query {
+  foo: 1
+}
+
+auth:awsv4 {
+  foo: 1
+}
+
+auth:basic {
+  foo: 1
+}
+
+auth:bearer {
+  foo: 1
+}
+
+auth:digest {
+  foo: 1
+}
+
+auth:oauth2 {
+  foo: 1
+}
+
+
+vars {
+  foo: 1
+}
+
+vars:pre-request {
+  foo: 1
+}
+
+vars:post-response {
+  foo: 1
+}
+
+assert {
+  foo: 1
+}
+
+body {
+  {"foo": 1}
+}
+
+body:json {
+  {"foo": 1}
+}
+
+body:text {
+  foo: 1 _markdown???_
+}
+
+body:xml {
+  <foo bar="a">1</foo>
+}
+
+body:sparql {
+  SELECT *
+}
+
+body:graphql {
+  {
+    foo {
+      bar
+    }
+  }
+}
+
+body:graphql:vars {
+  {"foo": 1}
+}
+
+body:form-urlencoded {
+  foo: 1
+}
+
+body:multipart-form {
+  foo: 1
+}
+
+script:pre-request {
+  for (let word of ["Hello", "World"]) console.log("Word:", word)
+}
+
+script:post-response {
+  for (let word of ["Hello", "World"]) console.log("Word:", word)
+}
+
+tests {
+  for (let word of ["Hello", "World"]) console.log("Word:", word)
+}
+
+docs {
+  # H1
+  Hello *bruno*
+}
