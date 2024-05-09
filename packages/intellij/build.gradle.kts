@@ -13,13 +13,29 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2022.1.4")
+    version.set("2024.1")
     type.set("IC") // Target IDE Platform
 
-    plugins.set(listOf(/* Plugin Dependencies */))
+    plugins.set(
+        listOf(
+            "org.jetbrains.plugins.textmate"
+        )
+    )
 }
 
 tasks {
+    val copyVscodeTextMateBundle by registering(Copy::class) {
+        from("../vscode/")
+        include("package.json")
+        include("language-configuration.json")
+        include("syntaxes/bruno.tmLanguage.json")
+        into(layout.buildDirectory.dir("resources/main/textmate/bruno-bundle"))
+    }
+
+    processResources {
+        dependsOn(copyVscodeTextMateBundle)
+    }
+
     // Set the JVM compatibility versions
     withType<JavaCompile> {
         sourceCompatibility = "11"
@@ -27,8 +43,8 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("221")
-        untilBuild.set("231.*")
+        sinceBuild.set("241")
+        untilBuild.set("241.*")
     }
 
     signPlugin {
