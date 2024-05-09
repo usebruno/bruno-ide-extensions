@@ -15,6 +15,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class BrunoRunConfiguration extends RunConfigurationBase<BrunoRunConfigurationOptions> {
@@ -65,10 +67,13 @@ public class BrunoRunConfiguration extends RunConfigurationBase<BrunoRunConfigur
             @NotNull
             @Override
             protected ProcessHandler startProcess() throws ExecutionException {
-                GeneralCommandLine commandLine = new GeneralCommandLine(
+                ArrayList<String> cliParams = new ArrayList<>(List.of(
                     Objects.requireNonNull(BrunoSettingsState.getBrunoCliExecutable()).getAbsolutePath(),
                     "run"
-                ).withWorkDirectory(getOptions().getCollectionRoot());
+                ));
+                getOptions().addCliParameters(cliParams);
+                GeneralCommandLine commandLine = new GeneralCommandLine(cliParams)
+                    .withWorkDirectory(getOptions().getCollectionRoot());
                 OSProcessHandler processHandler = ProcessHandlerFactory.getInstance()
                     .createColoredProcessHandler(commandLine);
                 ProcessTerminatedListener.attach(processHandler);
