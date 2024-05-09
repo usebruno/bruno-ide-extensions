@@ -38,5 +38,6 @@
         />
 
         <configurationType implementation="com.usebruno.plugin.bruno.execution.BrunoRunConfigurationType"/>
+        <runConfigurationProducer implementation="com.usebruno.plugin.bruno.execution.BrunoRunConfigurationProducer"/>
     </extensions>
 </idea-plugin>
