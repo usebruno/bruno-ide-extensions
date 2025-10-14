@@ -1,3 +1,9 @@
+## 🚧🚧 Project Update: YAML Migration in Progress 🚧🚧
+
+We are actively working on a YAML-based approach for storing API collections, which may replace the existing Bru structure in future versions.
+Development on IDE extensions is currently paused while we evaluate community adoption of the YAML format.
+We expect to provide a definitive update by December 2025.
+
 <br />
 <img src="assets/images/logo-transparent.png" width="80"/>
 
