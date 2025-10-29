@@ -36,7 +36,10 @@
 		{"include": "#script-req-block"},
 		{"include": "#script-res-block"},
 		{"include": "#tests-block"},
-		{"include": "#docs-block"}
+		{"include": "#docs-block"},
+		{"include": "#params-query-block"},
+		{"include": "#auth-block"},
+		{"include": "#patch-block"}
 	],
 	"repository": {
 		"strings": {
@@ -372,6 +375,36 @@
 					"include": "text.html.markdown"
 				}
 			]
+		},
+		"params-query-block": {
+			"name": "meta.params-query-block.bruno",
+			"begin": "^params\\:query\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.bruno"
+				}
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		"auth-block": {
+			"name": "meta.auth-block.bruno",
+			"begin": "^auth(?:\\s*:\\s*bearer)?\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": { "name": "keyword.bruno" }
+			},
+			"patterns": [{"include": "#dictionary"}]
+		},
+		
+		"patch-block": {
+			"name": "meta.patch-block.bruno",
+			"begin": "^patch\\s*\\{",
+			"end": "^\\}\\s*",
+			"beginCaptures": {
+				"0": { "name": "keyword.bruno" }
+			},
+			"patterns": [{"include": "#dictionary"}]
 		},
 		"dictionary": {
 			"patterns": [{
