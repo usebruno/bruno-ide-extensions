@@ -30,6 +30,14 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-        <codeStyleSettingsProvider implementation="resources/bruno.tmLanguage.json"/>
+        <applicationConfigurable
+                parentId="tools"
+                displayName="Bruno"
+                instance="com.usebruno.plugin.bruno.settings.BrunoSettingsConfigurable"
+                id="com.usebruno.plugin.bruno.settings.BrunoSettingsConfigurable"
+        />
+
+        <configurationType implementation="com.usebruno.plugin.bruno.execution.BrunoRunConfigurationType"/>
+        <runConfigurationProducer implementation="com.usebruno.plugin.bruno.execution.BrunoRunConfigurationProducer"/>
     </extensions>
 </idea-plugin>
